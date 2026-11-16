@@ -109,7 +109,7 @@ CLOUDINARY_SECRET_KEY="<your_cloudinary_secret_key>"
 ### Patient Frontend (`Appointy/frontend/.env`)
 
 ```env
-VITE_BACKEND_URL="https://your-api.onrender.com"
+VITE_BACKEND_URL="https://appointy-93nj.onrender.com"
 VITE_RAZORPAY_KEY_ID="rzp_test_<your_key_id>"
 VITE_CURRENCY="₹"
 ```
@@ -117,7 +117,7 @@ VITE_CURRENCY="₹"
 ### Admin & Doctor Frontend (`Appointy/admin/.env`)
 
 ```env
-VITE_BACKEND_URL="https://your-api.onrender.com"
+VITE_BACKEND_URL="https://appointy-93nj.onrender.com"
 VITE_CURRENCY="₹"
 ```
 
