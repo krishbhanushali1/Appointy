@@ -1,168 +1,202 @@
-# Appointy - Doctor Appointment Web App
+# Appointy — Clinical Operations & Healthcare Appointment Platform
 
-**Appinty** is a full-stack web application designed to make healthcare more accessible by simplifying the process of booking doctor appointments. It offers three levels of login: **Patient**, **Doctor**, and **Admin**, each with distinct features tailored to their roles. The app integrates **online payment gateways (Stripe and Razorpay)** to facilitate seamless and secure payments. Built using the **MERN stack** (MongoDB, Express.js, React.js, and Node.js), Appointy provides an efficient, user-friendly experience for both patients and healthcare providers.
-
-## 🛠️ Tech Stack
-
-- **Frontend**: React.js
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Payment Gateways**: Razorpay
-- **Authentication**: JSON Web Token (JWT)
-
-## 🔑 Key Features
-
-### 1. Three-Level Authentication
-
-- **Patient Login**: 
-  - Patients can sign up, log in, and book appointments with doctors.
-  - Manage appointments (view, cancel, or reschedule).
-  - Secure online payment options available (cash, Stripe, Razorpay).
-  - User profile with editable information (name, email, address, gender, birthday, profile picture).
-
-- **Doctor Login**:
-  - Doctors can log in and manage appointments.
-  - Dashboard displays earnings, number of patients, number of appointments, and latest bookings.
-  - Update profile details (description, fees, address, availability status).
-  - View appointment details (patient info, payment mode, appointment status).
-
-- **Admin Login**:
-  - Admins can create and manage doctor profiles.
-  - Dashboard with analytics: total doctors, total appointments, total patients, and recent bookings.
-  - Add new doctors (image, specialty, degree, experience, address, fees, etc.).
-  - View and manage all appointments (cancel or mark as completed).
-
-## 🏠 Home Page
-
-- Features a user-friendly layout where users can:
-  - **Search for doctors** based on specialties.
-  - **View top doctors** and their profiles.
-  - Explore additional sections: About Us, Delivery Information, Privacy Policy, and Get in Touch.
-- **Footer** includes navigation links: Home, About Us, Delivery Info, Privacy Policy, Contact Us.
-
-## 🩺 All Doctors Page
-
-- Lists all available doctors.
-- Users can **filter doctors by specialty**.
-- Clicking on a doctor's profile redirects to the **Doctor Appointment Page**.
-
-## 📄 About Page
-
-- Provides information about **Appointy’s vision** and mission.
-- **Why Choose Us** section highlights:
-  - **Efficiency**: Streamlined appointment process.
-  - **Convenience**: Online booking and payment.
-  - **Personalization**: Tailored experience based on user preferences.
-- Footer section with additional links.
-
-## 📞 Contact Page
-
-- Contains **office address** and contact details.
-- Section to explore job opportunities.
-- Footer navigation links.
-
-## 📅 Doctor Appointment Page
-
-- Displays detailed information about the selected doctor:
-  - **Profile picture, qualification, experience**, and a brief description.
-  - **Appointment booking form**: Choose date, time, and payment method.
-  - Online payment options: **Cash, Stripe, or Razorpay**.
-  - **Related doctors** section at the bottom.
-- Users need to **create an account or log in** before booking an appointment.
-
-## 👤 User Profile
-
-- Accessible after login.
-- Users can view and edit their profile:
-  - **Upload profile picture**.
-  - Update **name, email, address, gender, and birthday**.
-- View list of upcoming and past appointments.
-- **Logout** option available.
-
-## 🗄️ Admin Panel
-
-- **Dashboard**:
-  - Displays statistics: **Number of doctors**, **appointments**, **patients**, and **latest bookings**.
-  - Option to **cancel bookings** if needed.
-- **Add Doctor**:
-  - Form to add a new doctor profile (image, specialty, email, password, degree, address, experience, fees, description).
-- **Doctor List**:
-  - View all registered doctors with options to edit or delete profiles.
-- **Appointments**:
-  - List of all appointments including patient name, age, date, time, doctor name, fees.
-  - Admin actions: **Cancel** or **Mark as Completed**.
-
-## 🩺 Doctor Dashboard
-
-- **Earnings Overview**:
-  - Total earnings from completed appointments.
-- **Appointments List**:
-  - View detailed list of patient appointments (name, age, date, time, payment mode, status).
-  - Actions: **Mark appointment as completed** or **Cancel appointment**.
-- **Profile Management**:
-  - Doctors can update their **profile information**, including description, fees, address, and availability status.
-
-## 💳 Payment Integration
-
-- Supports multiple payment methods:
-  - **Cash Payment**
-  - **Razorpay Integration**
-- Ensures a secure and smooth payment experience for users.
-
-## 🌐 Project Setup
-
-To set up and run this project locally:
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-username/appointy.git
-   cd appointy
-   ```
-
-2. **Install Dependencies**:
-   ```bash
-   npm install
-   cd client
-   npm install
-   ```
-
-3. **Environment Variables**:
-   - Create a `.env` file in the root directory and add the following:
-     ```env
-     MONGO_URI=your_mongodb_connection_string
-     JWT_SECRET=your_jwt_secret
-     STRIPE_API_KEY=your_stripe_api_key
-     RAZORPAY_API_KEY=your_razorpay_api_key
-     ```
-
-4. **Run the Application**:
-   ```bash
-   npm run dev
-   ```
-
-## 📦 Folder Structure
-
-```plaintext
-appointy/
-├── client/          # Frontend (React.js)
-├── server/          # Backend (Node.js, Express.js)
-├── models/          # MongoDB Schemas
-├── controllers/     # API Controllers
-├── routes/          # API Routes
-├── middleware/      # Authentication and Error Handling
-├── config/          # Configuration Files
-├── utils/           # Utility Functions
-├── public/          # Static Files
-└── .env             # Environment Variables
-```
-
-## 🤝 Contributing
-
-We welcome contributions! Please feel free to submit issues, fork the repository, and open pull requests.
-
-
-## 🌟 Acknowledgements
-
-- Thanks to the developers and contributors of MongoDB, Express.js, React.js, Node.js, Stripe, and Razorpay for their fantastic tools and libraries.
+Appointy is a production-grade, 3-tier healthcare management platform engineered to streamline clinical scheduling, consultation management, and role-segregated healthcare administration. Built on a decoupled MERN architecture, Appointy bridges patient discovery with clinical workflows through a high-concurrency booking engine, multi-role JWT authentication, and atomic payment settlement.
 
 ---
+
+## 🌐 Live Deployments & Showcase
+
+| Service | Environment | Live URL | Platform |
+| :--- | :--- | :--- | :--- |
+| **Patient Portal** | Production | [https://appointymern.vercel.app](https://appointymern.vercel.app) | Vercel Edge Network |
+| **Admin & Doctor Portal** | Production | [https://appointymern-admin.vercel.app](https://appointymern-admin.vercel.app) | Vercel Edge Network |
+| **Core REST API** | Production | [https://appointy-93nj.onrender.com](https://appointy-93nj.onrender.com) | Render Web Service |
+| **Launch Video Showcase** | Product Launch | [Watch Demo Video](#-product-launch-showcase) | `/brag` Automated Pipeline |
+
+---
+
+## 🏗️ System Architecture & Engineering Highlights
+
+```
+                       +-----------------------------------+
+                       |        Client Interfaces          |
+                       |  (React 19 + Vite + Tailwind CSS)  |
+                       +-----------------+-----------------+
+                                         |
+                       +-----------------+-----------------+
+                       |                                   |
+         +-------------v-------------+       +-------------v-------------+
+         |      Patient Frontend     |       |    Admin / Doctor Portal  |
+         |  (appointymern.vercel.app)|       |(appointymern-admin.vercel)|
+         +-------------+-------------+       +-------------+-------------+
+                       |                                   |
+                       +-----------------+-----------------+
+                                         |  HTTPS / REST / JSON
+                                         v
+                       +-----------------------------------+
+                       |       Node.js / Express API       |
+                       |    (appointy-93nj.onrender.com)   |
+                       +-----------------+-----------------+
+                                         |
+     +-------------------+---------------+-------------------+
+     |                   |                                   |
++----v-----+       +-----v------+                     +------v-----+
+| MongoDB  |       | Cloudinary |                     |  Razorpay  |
+|  Atlas   |       |  Media CDN |                     |  Checkout  |
++----------+       +------------+                     +------------+
+```
+
+### 1. Decoupled 3-Tier Architecture
+- **Distributed Micro-Frontends**: The patient booking application and clinical management console run as completely decoupled Single Page Applications (SPAs) on Vercel. Both communicate over secured CORS boundaries with an Express backend hosted on Render.
+- **SPA Rewrite Guardrails**: Pre-configured rewrites (`vercel.json`) ensure deep links across nested routes (`/my-appointments`, `/doctor-dashboard`, `/all-doctors`) resolve directly to `/index.html` without routing collisions or 404s.
+
+### 2. Multi-Role Stateless Access Control (RBAC)
+Security boundaries are enforced via separate stateless JSON Web Token (JWT) verification middlewares operating across discrete token spaces:
+- **`authUser` (`token`)**: Validates patient sessions, decrypts user claims, and injects `req.body.userId` into downstream appointment and profile handlers.
+- **`authDoctor` (`dToken`)**: Authenticates clinical practitioners to manage appointment availability, record consultation outcomes, and inspect earnings analytics.
+- **`authAdmin` (`aToken`)**: Gates operational endpoints (adding doctors, overriding schedules, global booking audit) against salted administrator credentials.
+
+### 3. Date-Indexed `slots_booked` Conflict Resolution
+- **Atomic Double-Booking Prevention**: Doctors maintain a date-partitioned slot matrix (`slots_booked: { [slotDate]: [slotTime] }`). When an appointment is requested, the booking pipeline performs an atomic availability lookup against the requested 7-day rolling calendar window before locking the slot.
+- **Immutable Appointment Snapshots**: Rather than storing volatile foreign keys, each appointment record embeds deep snapshots (`userData` and `docData`) capturing patient identity, medical details, fees, and doctor specialty at the exact timestamp of booking. Cancellation releases the slot lock back into the doctor's available pool immediately.
+
+### 4. Server-Verified Financial Settlement & Media Pipeline
+- **Two-Step Razorpay Verification**: Payment flows initiate via backend order generation (`razorpay.orders.create`), returning signed order metadata to the frontend. Upon completion, the backend directly fetches the verified order state (`razorpay.orders.fetch(orderId)`) before committing `payment: true` to the ledger.
+- **Multer Memory Buffer to Cloudinary CDN**: Doctor onboarding and profile updates stream multipart form data through Multer memory storage directly to Cloudinary v2, eliminating ephemeral server disk writes and serving responsive WebP assets globally.
+
+---
+
+## 💻 Tech Stack
+
+| Layer | Technologies |
+| :--- | :--- |
+| **Frontend Applications** | React 19, Vite, Tailwind CSS, React Router DOM v6, Axios, React Toastify |
+| **Backend API** | Node.js (ES Modules), Express.js 5.x, CORS, Dotenv |
+| **Database & ORM** | MongoDB Atlas, Mongoose 8.x |
+| **Security & Auth** | JSON Web Tokens (`jsonwebtoken`), Bcrypt password hashing, Validator |
+| **Media & Payments** | Cloudinary SDK v2, Multer, Razorpay Node SDK |
+| **Deployment & CI** | Vercel (Edge CDN, SPA Rewrites), Render (Container runtime), GitHub |
+
+---
+
+## ⚙️ Environment Variables Reference
+
+All credentials and environment variables must be configured before running the platform. **Never commit actual secrets to version control.**
+
+### Backend (`Appointy/backend/.env`)
+
+```env
+# Database
+MONGODB_URI="mongodb+srv://<username>:<password>@<cluster>.mongodb.net"
+PORT=4000
+
+# Authentication
+JWT_SECRET="<your-secure-random-jwt-secret>"
+ADMIN_EMAIL="admin@appointy.com"
+ADMIN_PASSWORD="<your-secure-admin-password>"
+
+# Payment Gateway (Razorpay)
+RAZORPAY_KEY_ID="rzp_test_<your_key_id>"
+RAZORPAY_KEY_SECRET="<your_razorpay_secret>"
+CURRENCY="INR"
+
+# Cloud Media Storage (Cloudinary)
+CLOUDINARY_NAME="<your_cloudinary_cloud_name>"
+CLOUDINARY_API_KEY="<your_cloudinary_api_key>"
+CLOUDINARY_SECRET_KEY="<your_cloudinary_secret_key>"
+```
+
+### Patient Frontend (`Appointy/frontend/.env`)
+
+```env
+VITE_BACKEND_URL="https://your-api.onrender.com"
+VITE_RAZORPAY_KEY_ID="rzp_test_<your_key_id>"
+VITE_CURRENCY="₹"
+```
+
+### Admin & Doctor Frontend (`Appointy/admin/.env`)
+
+```env
+VITE_BACKEND_URL="https://your-api.onrender.com"
+VITE_CURRENCY="₹"
+```
+
+---
+
+## 🚀 Local Setup & Deployment Guide
+
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn package manager
+- MongoDB Atlas cluster (with IP `0.0.0.0/0` whitelisted for dynamic cloud access)
+- Cloudinary and Razorpay developer accounts
+
+### 1. Local Development Setup
+
+#### Clone & Install Dependencies
+```bash
+git clone https://github.com/krishbhanushali1/Appointy.git
+cd Appointy
+
+# Install backend dependencies
+cd backend && npm install
+
+# Install patient frontend dependencies
+cd ../frontend && npm install
+
+# Install admin/doctor frontend dependencies
+cd ../admin && npm install
+```
+
+#### Run Services Locally
+Open three terminal instances:
+
+```bash
+# Terminal 1 - Backend Server (runs on http://localhost:4000)
+cd Appointy/backend
+npm run server
+
+# Terminal 2 - Patient Portal (runs on http://localhost:5173)
+cd Appointy/frontend
+npm run dev
+
+# Terminal 3 - Admin / Doctor Portal (runs on http://localhost:5174)
+cd Appointy/admin
+npm run dev
+```
+
+---
+
+### 2. Cloud Deployment Guide
+
+#### Backend (Render)
+1. Link the repository to a new **Web Service** on Render.
+2. Configure service parameters:
+   - **Root Directory**: `backend`
+   - **Build Command**: `npm install`
+   - **Start Command**: `node server.js`
+3. Add all backend environment variables under **Environment**.
+4. In **MongoDB Atlas > Network Access**, ensure `0.0.0.0/0` (Allow from Anywhere) is active.
+
+#### Frontends (Vercel)
+1. Import the repository twice into Vercel:
+   - **Project 1 (`appointy-frontend`)**: Root directory set to `frontend`, framework preset `Vite`.
+   - **Project 2 (`appointy-admin`)**: Root directory set to `admin`, framework preset `Vite`.
+2. Configure project environment variables (`VITE_BACKEND_URL`, `VITE_RAZORPAY_KEY_ID`, `VITE_CURRENCY`).
+3. Deploy. Both applications will automatically read their `vercel.json` rewrite configuration.
+
+---
+
+## 🎥 Product Launch Showcase
+
+Appointy includes an automated product showcase and video storyboard generated via `/brag` using Hyperframes and multi-track audio compositing:
+
+- **Launch Video**: `brag-output/brag.mp4` *(1080x1920 portrait launch reel featuring key clinical workflows, double-booking prevention, and instant checkout)*
+- **Live Patient Experience**: [https://appointymern.vercel.app](https://appointymern.vercel.app)
+- **Live Clinical Dashboard**: [https://appointymern-admin.vercel.app](https://appointymern-admin.vercel.app)
+
+---
+
+## 📄 License & Attribution
+
+This project is licensed under the [ISC License](LICENSE). Built for educational and portfolio demonstration.
