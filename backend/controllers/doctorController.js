@@ -79,11 +79,11 @@ const appointmentComplete = async (req, res) => {
 // Get all doctors (for frontend list)
 const doctorList = async (req, res) => {
   try {
-    const doctors = await doctorModel.find({}).select("-password -email");
+    const doctors = await doctorModel.find({}).select("-password -email").maxTimeMS(5000);
     res.json({ success: true, doctors });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ success: false, message: error.message });
+    console.error("doctorList error:", error.message);
+    res.json({ success: false, message: error.message, doctors: [] });
   }
 };
 
