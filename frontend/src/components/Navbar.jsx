@@ -46,7 +46,7 @@ const Navbar = () => {
         {/* ✅ Admin Panel Button - show only on home page  */}
         {location.pathname === '/' && (
           <button
-            onClick={() => window.open('https://appointy-six.vercel.app', '_blank')}
+            onClick={() => window.open('https://appointymern-admin.vercel.app', '_blank')}
             className='bg-primary text-white text-xs px-4 py-2 rounded-full hover:bg-gray-700 hidden md:block'
           >
             Admin Panel
@@ -87,6 +87,16 @@ const Navbar = () => {
             <NavLink onClick={() => setShowMenu(false)} to='/doctors' ><p className='px-4 py-2 rounded full inline-block'>ALL DOCTORS</p></NavLink>
             <NavLink onClick={() => setShowMenu(false)} to='/about' ><p className='px-4 py-2 rounded full inline-block'>ABOUT</p></NavLink>
             <NavLink onClick={() => setShowMenu(false)} to='/contact' ><p className='px-4 py-2 rounded full inline-block'>CONTACT</p></NavLink>
+            {token && userData ? (
+              <>
+                <NavLink onClick={() => setShowMenu(false)} to='/my-profile'><p className='px-4 py-2 rounded full inline-block'>MY PROFILE</p></NavLink>
+                <NavLink onClick={() => setShowMenu(false)} to='/my-appointments'><p className='px-4 py-2 rounded full inline-block'>MY APPOINTMENTS</p></NavLink>
+                <button onClick={() => { logout(); setShowMenu(false); }} className='px-6 py-2 bg-red-500 text-white text-sm rounded-full mt-2'>Logout</button>
+              </>
+            ) : (
+              <NavLink onClick={() => setShowMenu(false)} to='/login'><p className='px-6 py-2 bg-primary text-white text-sm rounded-full mt-2'>Create Account / Login</p></NavLink>
+            )}
+            <a onClick={() => setShowMenu(false)} href='https://appointymern-admin.vercel.app' target='_blank' rel='noreferrer' className='text-xs text-primary underline mt-4'>Admin & Doctor Portal ↗</a>
           </ul>
         </div>
       </div>
