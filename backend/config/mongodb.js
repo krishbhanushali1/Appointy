@@ -2,7 +2,13 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(`${process.env.MONGODB_URI || process.env.MONGO_URI}/appointy`);
+    let uri = (process.env.MONGODB_URI || process.env.MONGO_URI || "").trim();
+    uri = uri.replace(/^["']|["']$/g, "").trim();
+    if (uri && !uri.endsWith("/appointy")) {
+      uri = uri.replace(/\/+$/, "") + "/appointy";
+    }
+
+    await mongoose.connect(uri);
     console.log("Database Connected");
   } catch (error) {
     console.error("Database connection error:", error);
